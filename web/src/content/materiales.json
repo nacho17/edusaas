@@ -1,0 +1,14 @@
+[
+  {
+    "id": "q-organica-1",
+    "titulo": "Introducción a Química Orgánica",
+    "descripcion": "Conceptos básicos de química orgánica",
+    "archivo": "/pdfs/quimica-organica-intro.pdf"
+  },
+  {
+    "id": "q-general-1",
+    "titulo": "Estructura de la materia",
+    "descripcion": "Átomos, moléculas y enlaces",
+    "archivo": "/pdfs/estructura-materia.pdf"
+  }
+]
