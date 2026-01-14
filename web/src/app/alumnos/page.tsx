@@ -1,14 +1,17 @@
 import { ProtectedGate } from "@/components/ProtectedGate";
-import materiales from "@/content/materiales.json";
 
-type Material = {
-  id: string;
-  titulo: string;
-  descripcion?: string;
-  archivo: string;
-};
+async function getMateriales() {
+  const res = await fetch("http://localhost:3000/api/materiales", {
+    cache: "no-store",
+  });
 
-export default function AlumnosPage() {
+  const json = await res.json();
+  return json.data ?? [];
+}
+
+export default async function AlumnosPage() {
+  const materiales = await getMateriales();
+
   return (
     <ProtectedGate>
       <main className="p-8">
@@ -17,7 +20,7 @@ export default function AlumnosPage() {
         </h1>
 
         <ul className="space-y-4">
-          {(materiales as Material[]).map((m) => (
+          {materiales.map((m: any) => (
             <li key={m.id} className="border p-4 rounded">
               <h2 className="font-medium">{m.titulo}</h2>
               {m.descripcion && (
